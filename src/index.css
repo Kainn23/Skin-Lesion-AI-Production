@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10B981; /* Emerald 500 */
+  --color-primary-dark: #059669; /* Emerald 600 */
+  --color-secondary: #14B8A6; /* Teal 500 */
+  --color-accent: #3B82F6; /* Soft Blue / Blue 500 */
+  
+  --color-bg-light: #F8FAFC; /* Slate 50 */
+  --color-bg-dark: #0F172A; /* Slate 900 (Deep Charcoal) */
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #1E293B; /* Slate 800 */
+  
+  --color-text-light: #334155; /* Slate 700 */
+  --color-text-dark: #F1F5F9; /* Slate 100 */
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --bg-color: var(--color-bg-light);
+  --text-color: var(--color-text-light);
+  --card-bg: var(--color-card-light);
+  --border-color: #E2E8F0;
+  
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  --bg-color: var(--color-bg-dark);
+  --text-color: var(--color-text-dark);
+  --card-bg: var(--color-card-dark);
+  --border-color: #334155;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Utilities */
+.glass-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-radius: 1.5rem; /* 24px */
+  transition: all 0.3s ease;
+}
+
+.dark .glass-panel {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #475569;
+}

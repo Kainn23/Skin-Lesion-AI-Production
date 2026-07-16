@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./weights:/app/weights
+      # Mounting outputs is optional, it allows you to access GradCAM output locally
+      - ./outputs:/app/outputs
+    env_file:
+      - .env
+    restart: unless-stopped
+    # Use host network on Windows/Mac for simple GPU passthrough (optional, requires additional setup)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

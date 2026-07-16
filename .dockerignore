@@ -1,0 +1,46 @@
+.git
+.gitignore
+.venv
+.venv-1
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Notebooks
+notebooks/
+*.ipynb
+.ipynb_checkpoints
+
+# Build and logs
+logs/
+outputs/
+test_*.png
+*.jpg
+*.png
+!sample.jpg
+
+# VSCode and IDEs
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
